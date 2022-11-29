@@ -1,1 +1,20 @@
-<p>rooms works!</p>
+<p>Welcome to the {{ hotelName }} Hotel.</p>
+<button (click)="toggle()">Deitails</button>
+<div [hidden]="hideRooms">
+  <p>Number of rooms:</p>
+  <div [innerText]="numberOfRooms"></div>
+</div>
+
+<div *ngFor="let room of roomList">
+  <p>Room list:</p>
+  <div class="container mb-4">
+    <p>{{ room.roomType }}</p>
+    <p>{{ room.ameneties }}</p>
+    <p>{{ room.price }}</p>
+    <img [src]="room.img" alt="" style="max-width: 100px; maxheight: 100px" />
+    <br />
+    <span>{{ room.checkinTime }}</span>
+    <span>{{ room.checkoutTime }}</span>
+    <hr />
+  </div>
+</div>
