@@ -5,16 +5,34 @@
   <div [innerText]="numberOfRooms"></div>
 </div>
 
-<div *ngFor="let room of roomList">
+<div>
   <p>Room list:</p>
   <div class="container mb-4">
-    <p>{{ room.roomType }}</p>
-    <p>{{ room.ameneties }}</p>
-    <p>{{ room.price }}</p>
-    <img [src]="room.img" alt="" style="max-width: 100px; maxheight: 100px" />
-    <br />
-    <span>{{ room.checkinTime }}</span>
-    <span>{{ room.checkoutTime }}</span>
-    <hr />
+    <table class="table">
+      <tr class="tr-border">
+        <th scope="col">Room Type</th>
+        <th scope="col">Room number</th>
+        <th scope="col">Ameneties</th>
+        <th scope="col">Price</th>
+        <th scope="col">Check-in</th>
+        <th scope="col">Check-out</th>
+        <th scope="col">Photo</th>
+      </tr>
+      <tr *ngFor="let room of roomList">
+        <td class="td-item">{{ room.roomType }}</td>
+        <td class="td-item">{{ room.roomNumber }}</td>
+        <td class="td-item">{{ room.ameneties | titlecase }}</td>
+        <td class="td-item price">{{ room.price | currency: "EUR" }}</td>
+        <td class="td-item">{{ room.checkinTime | date }}</td>
+        <td class="td-item">{{ room.checkoutTime | date }}</td>
+        <td class="td-item">
+          <img
+            [src]="room.img"
+            alt=""
+            style="max-width: 100px; max-height: 100px"
+          />
+        </td>
+      </tr>
+    </table>
   </div>
 </div>
