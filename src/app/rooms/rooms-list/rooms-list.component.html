@@ -1,0 +1,31 @@
+<div>
+  <div class="container mb-4">
+    <p>Room list:</p>
+    <table class="table">
+      <tr class="tr-border">
+        <th scope="col">Room Type</th>
+        <th scope="col">Room number</th>
+        <th scope="col">Ameneties</th>
+        <th scope="col">Price</th>
+        <th scope="col">Check-in</th>
+        <th scope="col">Check-out</th>
+        <th scope="col">Photo</th>
+      </tr>
+      <tr *ngFor="let room of rooms">
+        <td class="td-item">{{ room.roomType }}</td>
+        <td class="td-item">{{ room.roomNumber }}</td>
+        <td class="td-item">{{ room.ameneties | titlecase }}</td>
+        <td class="td-item price">{{ room.price | currency: "EUR" }}</td>
+        <td class="td-item">{{ room.checkinTime | date }}</td>
+        <td class="td-item">{{ room.checkoutTime | date }}</td>
+        <td class="td-item">
+          <img
+            [src]="room.img"
+            alt=""
+            style="max-width: 100px; max-height: 100px"
+          />
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
