@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  Component,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
+import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './roomInterface';
 
 @Component({
@@ -11,6 +17,8 @@ export class RoomsComponent implements OnInit {
   numberOfRooms: number = 50;
   hideRooms: boolean = false;
 
+  bookedRooms: RoomList[] = [];
+
   rooms: Room = {
     totalRooms: 50,
     availableRooms: 0,
@@ -18,6 +26,9 @@ export class RoomsComponent implements OnInit {
   };
 
   roomList: RoomList[] = [];
+  @ViewChild(HeaderComponent)
+  headerComponent!: HeaderComponent;
+
   constructor() {}
 
   ngOnInit(): void {
@@ -52,12 +63,14 @@ export class RoomsComponent implements OnInit {
     ];
     this.toggle();
   }
+  ngAfterViewInit() {
+    this.headerComponent.title = 'Tilsitt';
+  }
 
   toggle() {
     this.hideRooms = !this.hideRooms;
   }
   selectedRoom(room: RoomList) {
-    this.roomList.push(room);
-    console.log(this.roomList);
+    this.bookedRooms.push(room);
   }
 }
