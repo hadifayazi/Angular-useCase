@@ -2,7 +2,9 @@ import {
   ChangeDetectionStrategy,
   Component,
   OnInit,
+  QueryList,
   ViewChild,
+  ViewChildren,
 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
 import { Room, RoomList } from './roomInterface';
@@ -29,6 +31,8 @@ export class RoomsComponent implements OnInit {
   @ViewChild(HeaderComponent)
   headerComponent!: HeaderComponent;
 
+  @ViewChildren(HeaderComponent)
+  headerChildernComponent!: QueryList<HeaderComponent>;
   constructor() {}
 
   ngOnInit(): void {
@@ -65,6 +69,9 @@ export class RoomsComponent implements OnInit {
   }
   ngAfterViewInit() {
     this.headerComponent.title = 'Tilsitt';
+    console.log(this.headerChildernComponent);
+    // this.headerChildernComponent.last.title = 'Sister hotels';
+    // console.log(this.headerChildernComponent.get(0));
   }
 
   toggle() {
