@@ -18,7 +18,6 @@ export class RoomsComponent implements OnInit {
   };
 
   roomList: RoomList[] = [];
-
   constructor() {}
 
   ngOnInit(): void {
@@ -56,5 +55,9 @@ export class RoomsComponent implements OnInit {
 
   toggle() {
     this.hideRooms = !this.hideRooms;
+  }
+  selectedRoom(room: RoomList) {
+    this.roomList.push(room);
+    console.log(this.roomList);
   }
 }

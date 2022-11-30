@@ -5,4 +5,5 @@
   <div [innerText]="numberOfRooms"></div>
 </div>
 
-<app-rooms-list [rooms]="roomList"></app-rooms-list>
+<app-rooms-list [rooms]="roomList" (selectedRoom)="selectedRoom($event)">
+</app-rooms-list>
