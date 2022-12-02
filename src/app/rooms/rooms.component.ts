@@ -3,6 +3,7 @@ import {
   Component,
   OnInit,
   QueryList,
+  SkipSelf,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
@@ -35,7 +36,7 @@ export class RoomsComponent implements OnInit {
 
   @ViewChildren(HeaderComponent)
   headerChildernComponent!: QueryList<HeaderComponent>;
-  constructor(private roomsService: RoomsService) {}
+  constructor(@SkipSelf() private roomsService: RoomsService) {}
 
   ngOnInit(): void {
     this.roomList = this.roomsService.getrooms();

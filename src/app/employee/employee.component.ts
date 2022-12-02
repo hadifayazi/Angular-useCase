@@ -5,11 +5,11 @@ import { RoomsService } from '../services/rooms.service';
   selector: 'app-employee',
   templateUrl: './employee.component.html',
   styleUrls: ['./employee.component.css'],
-  // providers: [RoomsService],
+  providers: [RoomsService],
 })
 export class EmployeeComponent implements OnInit {
   employeeName: string = 'John Doe';
-  constructor(@Self() @Optional() private roomsSerive?: RoomsService) {}
+  constructor(@Self() private roomsSerive: RoomsService) {}
 
   ngOnInit(): void {}
 }
