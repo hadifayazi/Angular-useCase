@@ -7,7 +7,9 @@ import {
   OnChanges,
   SimpleChanges,
   OnDestroy,
+  Optional,
 } from '@angular/core';
+import { LoggerService } from 'src/app/services/logger.service';
 import { RoomList } from '../roomInterface';
 
 @Component({
@@ -20,9 +22,13 @@ export class RoomsListComponent implements OnInit, OnChanges, OnDestroy {
 
   @Output() selectedRoom = new EventEmitter<RoomList>();
 
-  constructor() {}
+  constructor(@Optional() private loggerService: LoggerService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.loggerService?.log(
+      'Logger service from rooms-list component in ngOninit'
+    );
+  }
   ngOnChanges(changes: SimpleChanges): void {
     console.log(changes);
   }
