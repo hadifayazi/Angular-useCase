@@ -9,7 +9,7 @@ import { RoomsService } from '../services/rooms.service';
 })
 export class EmployeeComponent implements OnInit {
   employeeName: string = 'John Doe';
-  constructor(@Self() private roomsSerive: RoomsService) {}
+  constructor(@Self() @Optional() private roomsSerive?: RoomsService) {}
 
   ngOnInit(): void {}
 }
