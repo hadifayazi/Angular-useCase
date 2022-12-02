@@ -3,10 +3,12 @@ import {
   Component,
   OnInit,
   QueryList,
+  SkipSelf,
   ViewChild,
   ViewChildren,
 } from '@angular/core';
 import { HeaderComponent } from '../header/header.component';
+import { RoomsService } from '../services/rooms.service';
 import { Room, RoomList } from './roomInterface';
 
 @Component({
@@ -28,43 +30,16 @@ export class RoomsComponent implements OnInit {
   };
 
   roomList: RoomList[] = [];
+
   @ViewChild(HeaderComponent)
   headerComponent!: HeaderComponent;
 
   @ViewChildren(HeaderComponent)
   headerChildernComponent!: QueryList<HeaderComponent>;
-  constructor() {}
+  constructor(@SkipSelf() private roomsService: RoomsService) {}
 
   ngOnInit(): void {
-    this.roomList = [
-      {
-        roomNumber: 55,
-        roomType: 'Double',
-        ameneties: 'Air conditioner, free wifi',
-        price: 130,
-        img: 'https://venezia.satoripop.com/uploads/11/images/878_double1.JPEG',
-        checkinTime: new Date('11-Nov-2022'),
-        checkoutTime: new Date('16-Nov-2022'),
-      },
-      {
-        roomNumber: 46,
-        roomType: 'Single',
-        ameneties: 'Air conditioner, free wifi',
-        price: 100,
-        img: 'https://venezia.satoripop.com/uploads/11/images/1017_78.jpg',
-        checkinTime: new Date('11-Nov-2022'),
-        checkoutTime: new Date('13-Nov-2022'),
-      },
-      {
-        roomNumber: 76,
-        roomType: 'Superior',
-        ameneties: 'Air conditioner, free wifi',
-        price: 150,
-        img: 'https://venezia.satoripop.com/uploads/11/images/1024_Chambre%20sup%C3%A9rieure%20terrasse.jpg',
-        checkinTime: new Date('11-Nov-2022'),
-        checkoutTime: new Date('16-Nov-2022'),
-      },
-    ];
+    this.roomList = this.roomsService.getrooms();
     this.toggle();
   }
   ngAfterViewInit() {
