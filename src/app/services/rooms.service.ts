@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { RoomList } from '../rooms/roomInterface';
-
+import { environment } from '../../environments/environment';
 @Injectable({
   providedIn: 'root',
 })
@@ -35,7 +35,9 @@ export class RoomsService {
     },
   ];
 
-  constructor() {}
+  constructor() {
+    console.log(environment.apiEndpoint);
+  }
 
   getrooms() {
     return this.roomList;
