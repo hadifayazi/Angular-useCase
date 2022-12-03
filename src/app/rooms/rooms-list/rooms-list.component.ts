@@ -42,7 +42,8 @@ export class RoomsListComponent implements OnInit, OnChanges, OnDestroy {
       roomType: 'Twin',
       ameneties: 'Air conditioner, free wifi',
       price: 115,
-      img: 'https://venezia.satoripop.com/uploads/11/images/960_TWIN%20ROOMcopie.jpg',
+      image:
+        'https://venezia.satoripop.com/uploads/11/images/960_TWIN%20ROOMcopie.jpg',
       checkinTime: new Date('31-Nov-2022'),
       checkoutTime: new Date('26-Nov-2022'),
     };

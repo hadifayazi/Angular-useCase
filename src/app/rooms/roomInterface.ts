@@ -9,7 +9,7 @@ export interface RoomList {
   roomNumber: number;
   ameneties: string;
   price: number;
-  img: string;
+  image: string;
   checkinTime: Date;
   checkoutTime: Date;
 }

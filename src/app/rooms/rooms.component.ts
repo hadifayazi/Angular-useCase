@@ -39,7 +39,9 @@ export class RoomsComponent implements OnInit {
   constructor(@SkipSelf() private roomsService: RoomsService) {}
 
   ngOnInit(): void {
-    this.roomList = this.roomsService.getrooms();
+    this.roomsService.getrooms().subscribe((rooms) => {
+      this.roomList = rooms;
+    });
     this.toggle();
   }
   ngAfterViewInit() {
