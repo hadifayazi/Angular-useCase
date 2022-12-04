@@ -8,7 +8,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { catchError, of, Subscription } from 'rxjs';
+import { catchError, map, of, Subscription } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from '../services/rooms.service';
 import { Room, RoomList } from './roomInterface';
@@ -20,7 +20,6 @@ import { Room, RoomList } from './roomInterface';
 })
 export class RoomsComponent implements OnInit {
   hotelName: string = 'Tilsitt';
-  numberOfRooms: number = 50;
   hideRooms: boolean = false;
 
   loadesBytes: number = 0;
@@ -29,12 +28,15 @@ export class RoomsComponent implements OnInit {
   subscription!: Subscription;
 
   //insteat of subscribtion manually , use asyncPip. creating a stream
+  //the error handling part should be wirten in the service an not the component
   rooms$ = this.roomsService.getRooms$.pipe(
     catchError((err) => {
       console.log(err);
       return of([]);
     })
   );
+
+  roomsCount$ = this.roomsService.getRooms$.pipe(map((rooms) => rooms.length));
 
   bookedRooms: RoomList[] = [];
 
