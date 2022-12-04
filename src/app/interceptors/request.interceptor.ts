@@ -16,9 +16,13 @@ export class RequestInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    const newRequest = request.clone({
-      headers: new HttpHeaders({ 'content-type': 'application/json' }),
-    });
-    return next.handle(newRequest);
+    if (request.method === 'GET') {
+      const newRequest = request.clone({
+        headers: new HttpHeaders({ 'content-type': 'application/json' }),
+      });
+
+      return next.handle(newRequest);
+    }
+    return next.handle(request);
   }
 }
