@@ -3,13 +3,14 @@ import { RoomList } from '../rooms/roomInterface';
 import { environment } from '../../environments/environment';
 import { APP_SERVICE_CONFIG } from '../AppConfig/appconfig.service';
 import { AppConfig } from '../AppConfig/appconfig.interface';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpRequest } from '@angular/common/http';
 @Injectable({
   providedIn: 'root',
 })
 export class RoomsService {
   roomList: RoomList[] = [];
   apiUrl = 'https://127.0.0.1:8000/api/room_lists.json';
+  photoUrl = 'https://jsonplaceholder.typicode.com/photos';
 
   constructor(
     private httpClient: HttpClient,
@@ -20,5 +21,14 @@ export class RoomsService {
 
   getrooms() {
     return this.httpClient.get<RoomList[]>(this.apiUrl);
+  }
+  addRoom(room: RoomList) {
+    return this.httpClient.post<RoomList[]>(this.apiUrl, room);
+  }
+  getPhoto() {
+    const request = new HttpRequest('GET', this.photoUrl, {
+      reportProgress: true,
+    });
+    return this.httpClient.request(request);
   }
 }
