@@ -8,7 +8,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { catchError, of, Subscription } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from '../services/rooms.service';
 import { Room, RoomList } from './roomInterface';
@@ -29,7 +29,12 @@ export class RoomsComponent implements OnInit {
   subscription!: Subscription;
 
   //insteat of subscribtion manually , use asyncPip. creating a stream
-  rooms$ = this.roomsService.getRooms$;
+  rooms$ = this.roomsService.getRooms$.pipe(
+    catchError((err) => {
+      console.log(err);
+      return of([]);
+    })
+  );
 
   bookedRooms: RoomList[] = [];
 
