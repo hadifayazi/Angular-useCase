@@ -25,8 +25,11 @@ export class RoomsComponent implements OnInit {
 
   loadesBytes: number = 0;
 
-  //to manage the subscribtion and avoide forgeting to unsubscribe we create an instance of Subscribtion asign our subscribe to it and then in ngOnDestry Unsubscribe. specially in cases when we just need to rad the data.
+  //Creating a Subscription instence manually to manage the subscribtion and avoide forgeting to unsubscribe, then asign our subscribe object to it and then in ngOnDestry Unsubscribe. specially in cases when we just need to rad the data.
   subscription!: Subscription;
+
+  //insteat of subscribtion manually , use asyncPip. creating a stream
+  rooms$ = this.roomsService.getRooms$;
 
   bookedRooms: RoomList[] = [];
 
@@ -46,9 +49,9 @@ export class RoomsComponent implements OnInit {
   constructor(@SkipSelf() private roomsService: RoomsService) {}
 
   ngOnInit(): void {
-    this.subscription = this.roomsService.getRooms$.subscribe((rooms) => {
-      this.roomList = rooms;
-    });
+    // this.subscription = this.roomsService.getRooms$.subscribe((rooms) => {
+    //   this.roomList = rooms;
+    // });
 
     this.roomsService.getPhoto().subscribe((event) => {
       console.log(event);

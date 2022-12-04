@@ -20,7 +20,7 @@ import { RoomList } from '../roomInterface';
   styleUrls: ['./rooms-list.component.css'],
 })
 export class RoomsListComponent implements OnInit, OnChanges, OnDestroy {
-  @Input() rooms: RoomList[] = [];
+  @Input() rooms: RoomList[] | null = [];
 
   @Output() selectedRoom = new EventEmitter<RoomList>();
 
