@@ -8,6 +8,7 @@ import {
   ViewChild,
   ViewChildren,
 } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { HeaderComponent } from '../header/header.component';
 import { RoomsService } from '../services/rooms.service';
 import { Room, RoomList } from './roomInterface';
@@ -21,7 +22,11 @@ export class RoomsComponent implements OnInit {
   hotelName: string = 'Tilsitt';
   numberOfRooms: number = 50;
   hideRooms: boolean = false;
+
   loadesBytes: number = 0;
+
+  //to manage the subscribtion and avoide forgeting to unsubscribe we create an instance of Subscribtion asign our subscribe to it and then in ngOnDestry Unsubscribe. specially in cases when we just need to rad the data.
+  subscription!: Subscription;
 
   bookedRooms: RoomList[] = [];
 
@@ -41,7 +46,7 @@ export class RoomsComponent implements OnInit {
   constructor(@SkipSelf() private roomsService: RoomsService) {}
 
   ngOnInit(): void {
-    this.roomsService.getrooms().subscribe((rooms) => {
+    this.subscription = this.roomsService.getRooms$.subscribe((rooms) => {
       this.roomList = rooms;
     });
 
@@ -75,6 +80,11 @@ export class RoomsComponent implements OnInit {
     console.log(this.headerChildernComponent);
     // this.headerChildernComponent.last.title = 'Sister hotels';
     // console.log(this.headerChildernComponent.get(0));
+  }
+  ngOnDestroy() {
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+    }
   }
 
   toggle() {
