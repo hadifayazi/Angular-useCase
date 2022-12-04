@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import {
   Component,
   OnInit,
@@ -10,6 +11,7 @@ import {
   Optional,
 } from '@angular/core';
 import { LoggerService } from 'src/app/services/logger.service';
+import { RoomsService } from 'src/app/services/rooms.service';
 import { RoomList } from '../roomInterface';
 
 @Component({
@@ -22,7 +24,11 @@ export class RoomsListComponent implements OnInit, OnChanges, OnDestroy {
 
   @Output() selectedRoom = new EventEmitter<RoomList>();
 
-  constructor(@Optional() private loggerService: LoggerService) {}
+  constructor(
+    @Optional()
+    private loggerService: LoggerService,
+    private roomsService: RoomsService
+  ) {}
 
   ngOnInit(): void {
     this.loggerService?.log(
@@ -47,7 +53,10 @@ export class RoomsListComponent implements OnInit, OnChanges, OnDestroy {
       checkinTime: new Date('31-Nov-2022'),
       checkoutTime: new Date('26-Nov-2022'),
     };
-    this.rooms = [...this.rooms, newRoom];
+
+    return this.roomsService.addRoom(newRoom).subscribe((data) => {
+      this.rooms = data;
+    });
   }
   ngOnDestroy(): void {
     console.log('on destroy is called');

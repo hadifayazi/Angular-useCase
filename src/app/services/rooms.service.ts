@@ -21,4 +21,7 @@ export class RoomsService {
   getrooms() {
     return this.httpClient.get<RoomList[]>(this.apiUrl);
   }
+  addRoom(room: RoomList) {
+    return this.httpClient.post<RoomList[]>(this.apiUrl, room);
+  }
 }
