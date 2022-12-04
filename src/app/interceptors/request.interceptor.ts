@@ -4,6 +4,7 @@ import {
   HttpHandler,
   HttpEvent,
   HttpInterceptor,
+  HttpHeaders,
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -15,7 +16,9 @@ export class RequestInterceptor implements HttpInterceptor {
     request: HttpRequest<unknown>,
     next: HttpHandler
   ): Observable<HttpEvent<unknown>> {
-    console.log('Interceptor***************', request);
-    return next.handle(request);
+    const newRequest = request.clone({
+      headers: new HttpHeaders({ 'content-type': 'application/json' }),
+    });
+    return next.handle(newRequest);
   }
 }

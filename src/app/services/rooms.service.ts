@@ -20,12 +20,10 @@ export class RoomsService {
     console.log(this.config.apiEndpoint);
   }
 
-  headers = new HttpHeaders({
-    'content-type': 'application/json',
-  });
-  getRooms$ = this.httpClient
-    .get<RoomList[]>(this.apiUrl, { headers: this.headers })
-    .pipe(shareReplay(1));
+  // headers = new HttpHeaders({
+  //   'content-type': 'application/json',
+  // });
+  getRooms$ = this.httpClient.get<RoomList[]>(this.apiUrl).pipe(shareReplay(1));
 
   getrooms() {
     return this.httpClient.get<RoomList[]>(this.apiUrl);
