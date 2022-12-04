@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { LocoalStorageToken } from './services/localstorage.token';
+import { RoomsService } from './services/rooms.service';
 
 @Component({
   selector: 'app-root',

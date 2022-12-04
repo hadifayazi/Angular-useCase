@@ -1,3 +1,4 @@
+import { HttpEventType } from '@angular/common/http';
 import {
   ChangeDetectionStrategy,
   Component,
@@ -20,6 +21,7 @@ export class RoomsComponent implements OnInit {
   hotelName: string = 'Tilsitt';
   numberOfRooms: number = 50;
   hideRooms: boolean = false;
+  loadesBytes: number = 0;
 
   bookedRooms: RoomList[] = [];
 
@@ -42,6 +44,30 @@ export class RoomsComponent implements OnInit {
     this.roomsService.getrooms().subscribe((rooms) => {
       this.roomList = rooms;
     });
+
+    this.roomsService.getPhoto().subscribe((event) => {
+      console.log(event);
+      switch (event.type) {
+        case HttpEventType.Sent: {
+          console.log('Request has benn made!');
+          break;
+        }
+        case HttpEventType.ResponseHeader: {
+          console.log('Request sucessfully sent!');
+          break;
+        }
+        case HttpEventType.DownloadProgress: {
+          this.loadesBytes += event.loaded;
+          console.log(this.loadesBytes);
+          break;
+        }
+        case HttpEventType.Response: {
+          console.log(event.body);
+          console.log(event.status);
+        }
+      }
+    });
+
     this.toggle();
   }
   ngAfterViewInit() {
