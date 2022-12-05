@@ -1,0 +1,109 @@
+{{ addRoomForm.pristine | json }}
+{{ addRoomForm.dirty | json }}
+{{ addRoomForm.invalid | json }}
+{{ addRoomForm.valid | json }}
+{{ addRoomForm.value | json }}
+
+<div *ngIf="successMessage !== ''" class="alert alert-success">
+  {{ successMessage }}
+</div>
+
+<div>Add Rooms:</div>
+<form #addRoomForm="ngForm" (ngSubmit)="addRoom(addRoomForm)">
+  <div class="container">
+    <div class="mb-3">
+      <label for="roomnum" class="form-label">Room Number</label>
+      <input
+        required
+        [(ngModel)]="room.roomNumber"
+        type="number"
+        name="roomNumber"
+        id="roomnum"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="type" class="form-label">Room Type:</label>
+      <input
+        #roomType="ngModel"
+        minlength="3"
+        maxlength="30"
+        required
+        [(ngModel)]="room.roomType"
+        type="text"
+        name="roomType"
+        id="type"
+        class="form-control"
+      />
+    </div>
+    <div class="alert alert-danger" *ngIf="roomType.errors?.['minlength']">
+      Room type should be minimum 3 characters!
+    </div>
+    <div class="mb-3">
+      <label for="Price" class="form-label">Price:</label>
+      <input
+        required
+        [(ngModel)]="room.price"
+        type="number"
+        name="roomPrice"
+        id="Price"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="ameneties" class="form-label">Ameneties:</label>
+      <input
+        required
+        [(ngModel)]="room.ameneties"
+        type="text"
+        name="roomAmeneties"
+        id="Ameneties"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="checkin" class="form-label">checkin:</label>
+      <input
+        required
+        [(ngModel)]="room.checkinTime"
+        type="datetime"
+        name="checkin"
+        id="checkin"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="checkout" class="form-label">checkout:</label>
+      <input
+        required
+        [(ngModel)]="room.checkoutTime"
+        type="datetime"
+        name="checkout"
+        id="checkout"
+        class="form-control"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="img" class="form-label">Image:</label>
+      <input
+        required
+        [(ngModel)]="room.image"
+        type="text"
+        name="image"
+        id="img"
+        class="form-control"
+      />
+    </div>
+    <!-- <div class="mb-3 form-check">
+    <input type="checkbox" class="form-check-input" id="exampleCheck1" />
+    <label class="form-check-label" for="exampleCheck1">Check me out</label>
+  </div> -->
+    <button
+      [disabled]="addRoomForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
+  </div>
+</form>
