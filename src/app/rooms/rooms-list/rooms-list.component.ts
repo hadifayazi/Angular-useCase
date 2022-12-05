@@ -44,6 +44,7 @@ export class RoomsListComponent implements OnInit, OnChanges, OnDestroy {
   }
   addRoom() {
     const newRoom: RoomList = {
+      id: 100,
       roomNumber: 22,
       roomType: 'Twin',
       ameneties: 'Air conditioner, free wifi',
