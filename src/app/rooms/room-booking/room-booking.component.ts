@@ -13,8 +13,9 @@ export class RoomBookingComponent implements OnInit {
 
   ngOnInit(): void {
     this.router.params.subscribe((params) => {
-      this.roomId = params['roomId'];
-      console.log(this.roomId);
+      // this.roomId = params['roomId'];
+      // console.log(this.roomId);
+      this.roomId = this.router.snapshot.params['roomId'];
     });
   }
 }
