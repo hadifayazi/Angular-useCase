@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { EmployeeComponent } from './employee/employee.component';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { AddRoomComponent } from './rooms/add-room/add-room.component';
 import { RoomBookingComponent } from './rooms/room-booking/room-booking.component';
 import { RoomsComponent } from './rooms/rooms.component';
 
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'rooms/:roomId',
     component: RoomBookingComponent,
+  },
+  {
+    path: 'addRoom',
+    component: AddRoomComponent,
   },
   {
     path: 'employee',
