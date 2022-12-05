@@ -16,7 +16,7 @@ const routes: Routes = [
     component: RoomBookingComponent,
   },
   {
-    path: 'addRoom',
+    path: 'add',
     component: AddRoomComponent,
   },
   {
