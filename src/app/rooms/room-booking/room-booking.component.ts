@@ -12,10 +12,10 @@ export class RoomBookingComponent implements OnInit {
   constructor(private router: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.router.params.subscribe((params) => {
-      // this.roomId = params['roomId'];
-      // console.log(this.roomId);
-      this.roomId = this.router.snapshot.params['roomId'];
-    });
+    this.roomId = this.router.snapshot.params['roomId'];
+    // this.router.params.subscribe((params) => {
+    //   this.roomId = params['roomId'];
+    //   console.log(this.roomId);
+    // });
   }
 }
