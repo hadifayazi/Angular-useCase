@@ -1,5 +1,7 @@
+<div class="alert alert-success">{{ successMessage }}</div>
+
 <div>Add Rooms:</div>
-<form>
+<form (ngSubmit)="addRoom()">
   <div class="container">
     <div class="mb-3">
       <label for="roomnum" class="form-label">Room Number</label>
@@ -26,7 +28,7 @@
       <label for="Price" class="form-label">Price:</label>
       <input
         [(ngModel)]="room.price"
-        type="price"
+        type="number"
         name="roomPrice"
         id="Price"
         class="form-control"

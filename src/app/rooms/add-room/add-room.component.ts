@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RoomsService } from 'src/app/services/rooms.service';
 import { RoomList } from '../roomInterface';
 
 @Component({
@@ -17,7 +18,13 @@ export class AddRoomComponent implements OnInit {
     checkoutTime: new Date(),
   };
 
-  constructor() {}
+  successMessage: string = '';
+  constructor(private roomService: RoomsService) {}
 
   ngOnInit(): void {}
+  addRoom(): void {
+    this.roomService.addRoom(this.room).subscribe((room) => {
+      this.successMessage = 'Room was added successfully!';
+    });
+  }
 }
