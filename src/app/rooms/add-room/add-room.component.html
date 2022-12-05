@@ -4,23 +4,38 @@
     <div class="mb-3">
       <label for="roomnum" class="form-label">Room Number</label>
       <input
+        [(ngModel)]="room.roomNumber"
         type="number"
         name="roomNumber"
         id="roomnum"
         class="form-control"
       />
+      <h1>{{ room.roomNumber }}</h1>
     </div>
     <div class="mb-3">
       <label for="type" class="form-label">Room Type:</label>
-      <input type="text" name="roomType" id="type" class="form-control" />
+      <input
+        [(ngModel)]="room.roomType"
+        type="text"
+        name="roomType"
+        id="type"
+        class="form-control"
+      />
     </div>
     <div class="mb-3">
       <label for="Price" class="form-label">Price:</label>
-      <input type="price" name="roomPrice" id="Price" class="form-control" />
+      <input
+        [(ngModel)]="room.price"
+        type="price"
+        name="roomPrice"
+        id="Price"
+        class="form-control"
+      />
     </div>
     <div class="mb-3">
-      <label for="Ameneties" class="form-label">Ameneties:</label>
+      <label for="ameneties" class="form-label">Ameneties:</label>
       <input
+        [(ngModel)]="room.ameneties"
         type="text"
         name="roomAmeneties"
         id="Ameneties"
@@ -28,12 +43,19 @@
       />
     </div>
     <div class="mb-3">
-      <label for="checkin" class="form-label">Checkin:</label>
-      <input type="datetime" name="chckin" id="checkin" class="form-control" />
+      <label for="checkin" class="form-label">checkin:</label>
+      <input
+        [(ngModel)]="room.checkinTime"
+        type="datetime"
+        name="chckin"
+        id="checkin"
+        class="form-control"
+      />
     </div>
     <div class="mb-3">
-      <label for="checkout" class="form-label">Checkout:</label>
+      <label for="checkout" class="form-label">checkout:</label>
       <input
+        [(ngModel)]="room.checkoutTime"
         type="datetime"
         name="checkout"
         id="checkout"
@@ -42,7 +64,13 @@
     </div>
     <div class="mb-3">
       <label for="img" class="form-label">Image:</label>
-      <input type="text" name="image" id="img" class="form-control" />
+      <input
+        [(ngModel)]="room.image"
+        type="text"
+        name="image"
+        id="img"
+        class="form-control"
+      />
     </div>
     <!-- <div class="mb-3 form-check">
     <input type="checkbox" class="form-check-input" id="exampleCheck1" />
