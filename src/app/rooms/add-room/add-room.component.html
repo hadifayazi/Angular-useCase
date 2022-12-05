@@ -1,22 +1,23 @@
 <div class="alert alert-success">{{ successMessage }}</div>
-
+{{ addRoomForm.valid | json }}
 <div>Add Rooms:</div>
-<form (ngSubmit)="addRoom()">
+<form #addRoomForm="ngForm" (ngSubmit)="addRoom()">
   <div class="container">
     <div class="mb-3">
       <label for="roomnum" class="form-label">Room Number</label>
       <input
+        required
         [(ngModel)]="room.roomNumber"
         type="number"
         name="roomNumber"
         id="roomnum"
         class="form-control"
       />
-      <h1>{{ room.roomNumber }}</h1>
     </div>
     <div class="mb-3">
       <label for="type" class="form-label">Room Type:</label>
       <input
+        required
         [(ngModel)]="room.roomType"
         type="text"
         name="roomType"
@@ -27,6 +28,7 @@
     <div class="mb-3">
       <label for="Price" class="form-label">Price:</label>
       <input
+        required
         [(ngModel)]="room.price"
         type="number"
         name="roomPrice"
@@ -37,6 +39,7 @@
     <div class="mb-3">
       <label for="ameneties" class="form-label">Ameneties:</label>
       <input
+        required
         [(ngModel)]="room.ameneties"
         type="text"
         name="roomAmeneties"
@@ -47,6 +50,7 @@
     <div class="mb-3">
       <label for="checkin" class="form-label">checkin:</label>
       <input
+        required
         [(ngModel)]="room.checkinTime"
         type="datetime"
         name="chckin"
@@ -57,6 +61,7 @@
     <div class="mb-3">
       <label for="checkout" class="form-label">checkout:</label>
       <input
+        required
         [(ngModel)]="room.checkoutTime"
         type="datetime"
         name="checkout"
@@ -67,6 +72,7 @@
     <div class="mb-3">
       <label for="img" class="form-label">Image:</label>
       <input
+        required
         [(ngModel)]="room.image"
         type="text"
         name="image"
@@ -78,6 +84,12 @@
     <input type="checkbox" class="form-check-input" id="exampleCheck1" />
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div> -->
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button
+      [disabled]="addRoomForm.invalid"
+      type="submit"
+      class="btn btn-primary"
+    >
+      Submit
+    </button>
   </div>
 </form>
