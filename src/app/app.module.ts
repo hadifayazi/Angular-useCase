@@ -16,6 +16,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
 import { RoomBookingComponent } from './rooms/room-booking/room-booking.component';
 import { AddRoomComponent } from './rooms/add-room/add-room.component';
 import { FormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { FormsModule } from '@angular/forms';
     NotfoundComponent,
     RoomBookingComponent,
     AddRoomComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
