@@ -13,6 +13,7 @@ import { APP_CONFIG, APP_SERVICE_CONFIG } from './AppConfig/appconfig.service';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RequestInterceptor } from './interceptors/request.interceptor';
 import { NotfoundComponent } from './notfound/notfound.component';
+import { RoomBookingComponent } from './rooms/room-booking/room-booking.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NotfoundComponent } from './notfound/notfound.component';
     ContainerComponent,
     EmployeeComponent,
     NotfoundComponent,
+    RoomBookingComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
   providers: [
