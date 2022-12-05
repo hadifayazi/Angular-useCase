@@ -20,7 +20,7 @@ import { Room, RoomList } from './roomInterface';
 })
 export class RoomsComponent implements OnInit {
   hotelName: string = 'Tilsitt';
-  hideRooms: boolean = false;
+  hideRooms: boolean = true;
 
   loadesBytes: number = 0;
 

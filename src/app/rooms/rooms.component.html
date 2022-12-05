@@ -1,5 +1,5 @@
 <app-header></app-header>
-<button (click)="toggle()">Deitails</button>
+<button (click)="toggle()">Hide deitails</button>
 <div [hidden]="hideRooms" *ngIf="rooms$ | async as allRooms">
   <app-rooms-list [rooms]="allRooms" (selectedRoom)="selectedRoom($event)">
   </app-rooms-list>

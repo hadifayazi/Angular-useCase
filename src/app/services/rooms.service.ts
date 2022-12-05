@@ -10,7 +10,7 @@ import { shareReplay } from 'rxjs';
 })
 export class RoomsService {
   roomList: RoomList[] = [];
-  apiUrl = 'https://127.0.0.1:8000/api/room_lists.json';
+  apiUrl = 'https://127.0.0.1:8000/api/roomlists.json';
   photoUrl = 'https://jsonplaceholder.typicode.com/photos';
 
   constructor(
