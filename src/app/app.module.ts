@@ -15,6 +15,7 @@ import { RequestInterceptor } from './interceptors/request.interceptor';
 import { NotfoundComponent } from './notfound/notfound.component';
 import { RoomBookingComponent } from './rooms/room-booking/room-booking.component';
 import { AddRoomComponent } from './rooms/add-room/add-room.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,13 @@ import { AddRoomComponent } from './rooms/add-room/add-room.component';
     RoomBookingComponent,
     AddRoomComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, NgbModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    NgbModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   providers: [
     {
       provide: APP_SERVICE_CONFIG,
