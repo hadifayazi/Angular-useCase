@@ -12,10 +12,6 @@
   </div>
   <div *ngSwitchDefault>You are not allowed to view this page.</div>
 </div> -->
-<div>
-  <a [routerLink]="'rooms'">Rooms</a>
-</div>
-<div>
-  <a [routerLink]="'employee'">Employee</a>
-</div>
+<app-header></app-header>
+
 <router-outlet></router-outlet>
