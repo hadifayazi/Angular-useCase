@@ -8,14 +8,16 @@ const routes: Routes = [
   {
     path: 'rooms',
     component: RoomsComponent,
+    children: [
+      {
+        path: ':roomId',
+        component: RoomBookingComponent,
+      },
+    ],
   },
   {
     path: 'rooms/add',
     component: AddRoomComponent,
-  },
-  {
-    path: 'rooms/:roomId',
-    component: RoomBookingComponent,
   },
 ];
 
