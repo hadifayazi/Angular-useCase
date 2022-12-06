@@ -1,4 +1,10 @@
-import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
+import {
+  Directive,
+  ElementRef,
+  HostListener,
+  OnInit,
+  Renderer2,
+} from '@angular/core';
 
 @Directive({
   selector: '[appCustomHover]',
@@ -15,6 +21,20 @@ export class CustomHoverDirective implements OnInit {
       this.elermentRef.nativeElement,
       'backgroundColor',
       this.color
+    );
+  }
+  @HostListener('mouseenter') onMouseenter(): void {
+    this.renderer.setStyle(
+      this.elermentRef.nativeElement,
+      'backgroundColor',
+      'pink'
+    );
+  }
+  @HostListener('mouseleave') onMouseleave(): void {
+    this.renderer.setStyle(
+      this.elermentRef.nativeElement,
+      'backgroundColor',
+      'white'
     );
   }
 }
