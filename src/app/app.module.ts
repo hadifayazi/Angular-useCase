@@ -17,6 +17,7 @@ import { RoomBookingComponent } from './rooms/room-booking/room-booking.componen
 import { AddRoomComponent } from './rooms/add-room/add-room.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
+import { CustomHoverDirective } from './custom-hover.directive';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { LoginComponent } from './login/login.component';
     RoomBookingComponent,
     AddRoomComponent,
     LoginComponent,
+    CustomHoverDirective,
   ],
   imports: [
     BrowserModule,
