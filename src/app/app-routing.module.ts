@@ -6,6 +6,11 @@ import { NotfoundComponent } from './notfound/notfound.component';
 
 const routes: Routes = [
   {
+    path: 'rooms',
+    loadChildren: () =>
+      import('./rooms/rooms.module').then((m) => m.RoomsModule),
+  },
+  {
     path: 'employee',
     component: EmployeeComponent,
   },
