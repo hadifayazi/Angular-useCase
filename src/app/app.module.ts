@@ -18,6 +18,7 @@ import { AddRoomComponent } from './rooms/add-room/add-room.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { CustomHoverDirective } from './custom-hover.directive';
+import { CustomEmailValidatorDirective } from './custom-email-validator.directive';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { CustomHoverDirective } from './custom-hover.directive';
     AddRoomComponent,
     LoginComponent,
     CustomHoverDirective,
+    CustomEmailValidatorDirective,
   ],
   imports: [
     BrowserModule,
