@@ -1,16 +1,18 @@
-{{ addRoomForm.pristine | json }}
+<!-- {{ addRoomForm.pristine | json }}
 {{ addRoomForm.dirty | json }}
 {{ addRoomForm.invalid | json }}
 {{ addRoomForm.valid | json }}
-{{ addRoomForm.value | json }}
+{{ addRoomForm.value | json }} -->
 
 <div *ngIf="successMessage !== ''" class="alert alert-success">
   {{ successMessage }}
 </div>
 
-<div>Add Rooms:</div>
 <form #addRoomForm="ngForm" (ngSubmit)="addRoom(addRoomForm)">
   <div class="container">
+    <div class="mb-5">
+      <h3 class="mt-5">Add Rooms:</h3>
+    </div>
     <div class="mb-3">
       <label for="roomnum" class="form-label">Room Number</label>
       <input
