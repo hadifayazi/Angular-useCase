@@ -1,5 +1,7 @@
-<p>Number of rooms:</p>
-<div [innerText]="roomsCount$ | async"></div>
+<div class="mt-3">
+  <span>Number of rooms: </span>
+  <span [innerText]="roomsCount$ | async"></span>
+</div>
 
 <div class="container mb-5">
   <router-outlet></router-outlet>

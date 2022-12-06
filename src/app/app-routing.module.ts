@@ -24,6 +24,11 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
+    path: 'booking',
+    loadChildren: () =>
+      import('./booking/booking.module').then((m) => m.BookingModule),
+  },
+  {
     path: '**',
     component: NotfoundComponent,
   },
