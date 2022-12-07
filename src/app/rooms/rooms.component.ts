@@ -86,8 +86,8 @@ export class RoomsComponent implements OnInit {
     this.toggle();
   }
   ngAfterViewInit() {
-    this.headerComponent.title = 'Tilsitt';
-    console.log(this.headerChildernComponent);
+    // this.headerComponent.title = 'Tilsitt';
+    // console.log(this.headerChildernComponent);
     // this.headerChildernComponent.last.title = 'Sister hotels';
     // console.log(this.headerChildernComponent.get(0));
   }
