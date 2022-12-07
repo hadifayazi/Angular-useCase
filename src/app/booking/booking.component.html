@@ -16,7 +16,21 @@
         formControlName="guestName"
         aria-describedby="emailHelp"
       />
+
+      <p
+        class="alert alert-danger"
+        *ngIf="bookingForm.controls['guestName'].touched && bookingForm.controls['guestName'].dirty && bookingForm.controls['guestName'].errors?.['required']"
+      >
+        Field is required!
+      </p>
+      <p
+        class="alert alert-danger"
+        *ngIf="bookingForm.controls['guestName'].touched && bookingForm.controls['guestName'].dirty && bookingForm.controls['guestName'].errors?.['minlength']"
+      >
+        Name should be atleast 3 characters!
+      </p>
     </div>
+
     <div class="mb-3">
       <label for="tel" class="form-label">Phone Number:</label>
       <input
