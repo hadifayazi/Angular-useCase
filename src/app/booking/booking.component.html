@@ -1,9 +1,3 @@
-<p>booking works!</p>
-{{ bookingForm.pristine | json }}
-{{ bookingForm.dirty | json }}
-{{ bookingForm.invalid | json }}
-{{ bookingForm.valid | json }}
-{{ bookingForm.value | json }}
 <form [formGroup]="bookingForm">
   <div class="container">
     <h4 class="mb-5 mt-5">Book your room:</h4>
@@ -14,122 +8,47 @@
 
     <div class="mb-3">
       <label for="tel" class="form-label">Phone Number:</label>
-      <input
-        type="number"
-        class="form-control"
-        id="tel"
-        formControlName="guestPhone"
-        aria-describedby="emailHelp"
-      />
       <app-input [control]="guestPhone" type="number"></app-input>
     </div>
     <div class="mb-3">
       <label for="adress" class="form-label">Adress:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="adress"
-        formControlName="guestAdress"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="guestAdress" type="text"></app-input>
     </div>
     <div class="mb-3">
       <label for="email" class="form-label">Emile:</label>
-      <input
-        type="email"
-        class="form-control"
-        id="email"
-        formControlName="guestEmail"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="guestEmail" type="email"></app-input>
     </div>
     <div class="mb-3">
       <label for="ckin" class="form-label">checkin Date:</label>
-      <input
-        type="datetime"
-        class="form-control"
-        id="ckin"
-        formControlName="checkinTime"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="checkinTime" type="datetime"></app-input>
     </div>
     <div class="mb-3">
       <label for="ckout" class="form-label">checkout Date:</label>
-      <input
-        type="datetime"
-        class="form-control"
-        id="ckout"
-        formControlName="checkouTime"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="checkoutTime" type="datetime"></app-input>
     </div>
     <div class="mb-3">
       <label for="bookingStatus" class="form-label">Booking Status:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="bookingStatus"
-        formControlName="bookingStatus"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="bookingStatus" type="text"></app-input>
     </div>
     <div class="mb-3">
       <label for="bookingPrice" class="form-label">Price:</label>
-      <input
-        type="number"
-        class="form-control"
-        id="bookingPrice"
-        formControlName="bookingPrice"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="bookingPrice" type="number"></app-input>
     </div>
     <div class="mb-3">
       <label for="numberOfGuests" class="form-label">Number Of Guests:</label>
-      <input
-        type="number"
-        class="form-control"
-        id="numberOfGuests"
-        formControlName="numberOfGuests"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="numberOfGuests" type="number"></app-input>
     </div>
     <div class="mb-3">
       <label for="bookingDate" class="form-label">Booking Date:</label>
-      <input
-        type="datetime"
-        class="form-control"
-        id="bookingDate"
-        formControlName="bookingDate"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="bookingDate" type="datetime"></app-input>
     </div>
     <div class="mb-3">
       <label for="roomId" class="form-label">RoomId:</label>
-      <input
-        type="number"
-        class="form-control"
-        id="roomId"
-        formControlName="roomId"
-        aria-describedby="emailHelp"
-      />
+      <app-input [control]="roomId" type="number"></app-input>
     </div>
     <div class="mb-3">
       <label for="bookingId" class="form-label">Booking Id:</label>
-      <input
-        type="email"
-        class="form-control"
-        id="bookingId"
-        formControlName="bookingId"
-        aria-describedby="emailHelp"
-      />
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1" />
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1" />
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+      <app-input [control]="bookingId" type="number"></app-input>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </div>
