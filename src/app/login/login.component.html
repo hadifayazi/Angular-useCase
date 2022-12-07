@@ -15,7 +15,7 @@
           #emailControl="ngModel"
         />
       </div>
-      <div>
+      <div *ngIf="emailControl.errors !== null">
         {{ emailControl.errors | json }}
       </div>
     </div>
@@ -33,8 +33,8 @@
           placeholder="Your password"
           #passwordControl="ngModel"
         />
-        <div>
-          {{ passwordControl.errors | json }}
+        <div *ngIf="passwordControl.errors !== null">
+          <p>Please enter a valid password</p>
         </div>
         <button type="submit" class="btn btn-primary mt-3" (click)="login()">
           Submit
