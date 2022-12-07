@@ -53,4 +53,8 @@ export class BookingComponent {
     guestPhone: this.guestPhone,
     guestAdress: this.guestAdress,
   });
+
+  addBooking() {
+    console.log(this.bookingForm.value);
+  }
 }
