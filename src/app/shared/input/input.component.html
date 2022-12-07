@@ -1,1 +1,21 @@
-<p>input works!</p>
+<input
+  [formControl]="control"
+  type="text"
+  class="form-control"
+  id="name"
+  formControlName="guestName"
+  aria-describedby="emailHelp"
+/>
+
+<p
+  class="alert alert-danger"
+  *ngIf="control.touched && control.dirty && control.errors?.['required']"
+>
+  Field is required!
+</p>
+<p
+  class="alert alert-danger"
+  *ngIf="control.touched && control.dirty && control.errors?.['minlength']"
+>
+  Name should be atleast 3 characters!
+</p>

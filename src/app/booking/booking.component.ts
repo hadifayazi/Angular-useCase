@@ -11,42 +11,46 @@ import {
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css'],
 })
-export class BookingComponent implements OnInit {
-  bookingForm!: FormGroup;
+export class BookingComponent {
+  bookingId = new FormControl('');
 
-  constructor(private formBuilder: FormBuilder) {}
+  roomId = new FormControl('');
 
-  ngOnInit(): void {
-    this.bookingForm = this.formBuilder.group({
-      bookingId: new FormControl(''),
+  bookingDate = new FormControl('', [Validators.required]);
 
-      roomId: new FormControl(''),
+  numberOfGuests = new FormControl('', [Validators.required]);
 
-      bookingDate: new FormControl('', [Validators.required]),
+  bookingPrice = new FormControl('');
 
-      numberOfGuests: new FormControl('', [Validators.required]),
+  bookingStatus = new FormControl('');
 
-      bookingPrice: new FormControl(''),
+  checkinTime = new FormControl('', [Validators.required]);
 
-      bookingStatus: new FormControl(''),
+  checkoutTime = new FormControl('', [Validators.required]);
 
-      checkinTime: new FormControl('', [Validators.required]),
+  guestEmail = new FormControl('', [Validators.required]);
 
-      checkoutTime: new FormControl('', [Validators.required]),
+  guestName = new FormControl('', [
+    Validators.required,
+    Validators.minLength(3),
+  ]);
 
-      guestEmail: new FormControl('', [Validators.required]),
+  guestAdress = new FormControl('', [Validators.required]);
 
-      guestName: new FormControl('', [
-        Validators.required,
-        Validators.minLength(3),
-      ]),
+  guestPhone = new FormControl('', [Validators.required, Validators.min(10)]);
 
-      guestAdress: new FormControl('', [Validators.required]),
-
-      guestPhone: new FormControl('', [
-        Validators.required,
-        Validators.min(10),
-      ]),
-    });
-  }
+  bookingForm = new FormGroup({
+    bookingId: this.bookingId,
+    roomId: this.roomId,
+    bookingDate: this.bookingDate,
+    numberOfGuets: this.numberOfGuests,
+    checkinTime: this.checkinTime,
+    checkoutTime: this.checkoutTime,
+    bookingPrice: this.bookingPrice,
+    bookingStatus: this.bookingStatus,
+    guestName: this.guestName,
+    guestEmail: this.guestEmail,
+    guestPhone: this.guestPhone,
+    guestAdress: this.guestAdress,
+  });
 }
