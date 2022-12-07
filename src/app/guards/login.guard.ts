@@ -4,6 +4,7 @@ import {
   CanActivate,
   CanLoad,
   Route,
+  Router,
   RouterStateSnapshot,
   UrlSegment,
   UrlTree,
@@ -15,7 +16,8 @@ import { LoginService } from '../services/login.service';
   providedIn: 'root',
 })
 export class LoginGuard implements CanActivate, CanLoad {
-  constructor(private loginService: LoginService) {}
+  constructor(private loginService: LoginService, private route: Router) {}
+
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -24,7 +26,7 @@ export class LoginGuard implements CanActivate, CanLoad {
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.loginService.isLoggedIn;
+    return this.loginService.isLoggedIn ? true : this.route.navigate(['login']);
   }
   canLoad(
     route: Route,
