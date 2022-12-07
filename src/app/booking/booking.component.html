@@ -1,1 +1,61 @@
-<p>booking works!</p>
+<form [formGroup]="bookingForm">
+  <div class="container">
+    <h4 class="mb-5 mt-5">Book your room:</h4>
+    <div class="mb-3">
+      <label for="name" class="form-label">Name</label>
+      <app-input [control]="guestName" type="text"></app-input>
+    </div>
+
+    <div class="mb-3">
+      <label for="tel" class="form-label">Phone Number:</label>
+      <app-input [control]="guestPhone" type="number"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="adress" class="form-label">Adress:</label>
+      <app-input [control]="guestAdress" type="text"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Emile:</label>
+      <app-input [control]="guestEmail" type="email"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="ckin" class="form-label">checkin Date:</label>
+      <app-input [control]="checkinTime" type="datetime"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="ckout" class="form-label">checkout Date:</label>
+      <app-input [control]="checkoutTime" type="datetime"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="bookingStatus" class="form-label">Booking Status:</label>
+      <app-input [control]="bookingStatus" type="text"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="bookingPrice" class="form-label">Price:</label>
+      <app-input [control]="bookingPrice" type="number"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="numberOfGuests" class="form-label">Number Of Guests:</label>
+      <app-input [control]="numberOfGuests" type="number"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="bookingDate" class="form-label">Booking Date:</label>
+      <app-input [control]="bookingDate" type="datetime"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="roomId" class="form-label">RoomId:</label>
+      <app-input [control]="roomId" type="number"></app-input>
+    </div>
+    <div class="mb-3">
+      <label for="bookingId" class="form-label">Booking Id:</label>
+      <app-input [control]="bookingId" type="number"></app-input>
+    </div>
+    <button
+      [disabled]="bookingForm.invalid"
+      type="submit"
+      class="btn btn-primary mb-5"
+    >
+      Submit
+    </button>
+  </div>
+</form>
