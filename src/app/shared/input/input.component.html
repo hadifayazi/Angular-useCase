@@ -13,4 +13,7 @@
   <p class="alert alert-danger" *ngIf="control.errors?.['minlength']">
     Name should be atleast 3 characters!
   </p>
+  <p class="alert alert-danger" *ngIf="control.errors?.['email']">
+    Please provide a valid email!
+  </p>
 </ng-container>

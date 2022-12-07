@@ -28,7 +28,7 @@ export class BookingComponent {
 
   checkoutTime = new FormControl('', [Validators.required]);
 
-  guestEmail = new FormControl('', [Validators.required]);
+  guestEmail = new FormControl('', [Validators.required, Validators.email]);
 
   guestName = new FormControl('', [
     Validators.required,
