@@ -55,6 +55,7 @@ export class BookingComponent {
   });
 
   addBooking() {
-    console.log(this.bookingForm.value);
+    console.log(this.bookingForm.getRawValue());
+    this.bookingForm.reset();
   }
 }
