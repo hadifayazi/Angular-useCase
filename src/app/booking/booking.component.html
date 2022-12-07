@@ -9,7 +9,7 @@
     <h4 class="mb-5 mt-5">Book your room:</h4>
     <div class="mb-3">
       <label for="name" class="form-label">Name</label>
-      <app-input [control]="guestName"></app-input>
+      <app-input [control]="guestName" type="text"></app-input>
     </div>
 
     <div class="mb-3">
@@ -21,6 +21,7 @@
         formControlName="guestPhone"
         aria-describedby="emailHelp"
       />
+      <app-input [control]="guestPhone" type="number"></app-input>
     </div>
     <div class="mb-3">
       <label for="adress" class="form-label">Adress:</label>
