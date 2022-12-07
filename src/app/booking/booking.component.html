@@ -50,6 +50,12 @@
       <label for="bookingId" class="form-label">Booking Id:</label>
       <app-input [control]="bookingId" type="number"></app-input>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button
+      [disabled]="bookingForm.invalid"
+      type="submit"
+      class="btn btn-primary mb-5"
+    >
+      Submit
+    </button>
   </div>
 </form>
