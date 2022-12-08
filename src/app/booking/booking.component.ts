@@ -6,7 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatGridTileHeaderCssMatStyler } from '@angular/material';
-import { mergeMap } from 'rxjs';
+import { mergeMap, switchMap } from 'rxjs';
 import { BookingService } from '../services/booking.service';
 
 @Component({
@@ -72,7 +72,7 @@ export class BookingComponent implements OnInit {
     // });
 
     this.bookingForm.valueChanges
-      .pipe(mergeMap((data) => this.bookingSerivce.addBooking(data)))
+      .pipe(switchMap((data) => this.bookingSerivce.addBooking(data)))
       .subscribe((data) => {
         console.log(data);
       });
