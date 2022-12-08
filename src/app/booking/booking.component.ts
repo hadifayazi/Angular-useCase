@@ -5,34 +5,55 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatGridTileHeaderCssMatStyler } from '@angular/material';
+import { mergeMap, switchMap, exhaustMap } from 'rxjs';
+import { BookingService } from '../services/booking.service';
+import { CustomFormValidator } from '../validators/custom-form-validators';
 
 @Component({
   selector: 'app-booking',
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css'],
 })
-export class BookingComponent {
+export class BookingComponent implements OnInit {
   bookingId = new FormControl('');
 
   roomId = new FormControl('');
 
   bookingDate = new FormControl('', [Validators.required]);
 
-  numberOfGuests = new FormControl('', [Validators.required]);
+  numberOfGuests = new FormControl('', {
+    updateOn: 'blur',
+    validators: [Validators.required],
+  });
 
   bookingPrice = new FormControl('');
 
   bookingStatus = new FormControl('');
 
-  checkinTime = new FormControl('', [Validators.required]);
+  checkinTime = new FormControl('', [
+    Validators.required,
+    CustomFormValidator.validaDate,
+  ]);
 
-  checkoutTime = new FormControl('', [Validators.required]);
+  checkoutTime = new FormControl('', [
+    Validators.required,
+    CustomFormValidator.validaDate,
+  ]);
 
-  guestEmail = new FormControl('', [Validators.required, Validators.email]);
+  guestEmail = new FormControl('', {
+    validators: [
+      Validators.required,
+      Validators.email,
+      CustomFormValidator.validateSpecialChars('*'),
+    ],
+    updateOn: 'blur',
+  });
 
   guestName = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
+    CustomFormValidator.validateName,
   ]);
 
   guestAdress = new FormControl('', [Validators.required]);
@@ -53,4 +74,23 @@ export class BookingComponent {
     guestPhone: this.guestPhone,
     guestAdress: this.guestAdress,
   });
+  constructor(private bookingSerivce: BookingService) {}
+
+  ngOnInit(): void {
+    // this.bookingForm.valueChanges.subscribe((arg) => {
+    //   this.bookingSerivce.addBooking(arg).subscribe((arg) => {
+    //     console.log(arg);
+    //   });
+    // });
+
+    this.bookingForm.valueChanges
+      .pipe(exhaustMap((data) => this.bookingSerivce.addBooking(data)))
+      .subscribe((data) => {
+        console.log(data);
+      });
+  }
+
+  addBooking() {
+    this.bookingSerivce.addBooking(this.bookingForm.getRawValue());
+  }
 }

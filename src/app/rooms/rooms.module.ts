@@ -7,6 +7,7 @@ import { RoomsComponent } from './rooms.component';
 import { RoomBookingComponent } from './room-booking/room-booking.component';
 import { AddRoomComponent } from './add-room/add-room.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -15,6 +16,6 @@ import { FormsModule } from '@angular/forms';
     RoomBookingComponent,
     AddRoomComponent,
   ],
-  imports: [CommonModule, RoomsRoutingModule, FormsModule],
+  imports: [CommonModule, RoomsRoutingModule, FormsModule, HttpClientModule],
 })
 export class RoomsModule {}
