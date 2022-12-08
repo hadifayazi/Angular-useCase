@@ -11,7 +11,7 @@ import {
   templateUrl: './booking.component.html',
   styleUrls: ['./booking.component.css'],
 })
-export class BookingComponent {
+export class BookingComponent implements OnInit {
   bookingId = new FormControl('');
 
   roomId = new FormControl('');
@@ -53,6 +53,10 @@ export class BookingComponent {
     guestPhone: this.guestPhone,
     guestAdress: this.guestAdress,
   });
+
+  ngOnInit(): void {
+    this.bookingForm.valueChanges.subscribe((arg) => console.log(arg));
+  }
 
   addBooking() {
     console.log(this.bookingForm.getRawValue());
