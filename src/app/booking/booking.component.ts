@@ -6,6 +6,7 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatGridTileHeaderCssMatStyler } from '@angular/material';
+import { ActivatedRoute } from '@angular/router';
 import { mergeMap, switchMap, exhaustMap } from 'rxjs';
 import { BookingService } from '../services/booking.service';
 import { CustomFormValidator } from '../validators/custom-form-validators';
@@ -74,9 +75,14 @@ export class BookingComponent implements OnInit {
     guestPhone: this.guestPhone,
     guestAdress: this.guestAdress,
   });
-  constructor(private bookingSerivce: BookingService) {}
+  constructor(
+    private bookingSerivce: BookingService,
+    private router: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
+    const roomId = this.router.snapshot.paramMap.get('roomId');
+    this.roomId.setValue(roomId);
     // this.bookingForm.valueChanges.subscribe((arg) => {
     //   this.bookingSerivce.addBooking(arg).subscribe((arg) => {
     //     console.log(arg);
