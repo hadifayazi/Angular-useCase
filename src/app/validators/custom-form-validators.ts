@@ -8,4 +8,14 @@ export class CustomFormValidator {
     }
     return null;
   }
+
+  static validateSpecialChars(char: string) {
+    return (control: AbstractControl) => {
+      const spchar = control.value as string;
+      if (spchar.includes(char)) {
+        return { invalidspecialChar: true };
+      }
+      return null;
+    };
+  }
 }
