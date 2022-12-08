@@ -1,9 +1,17 @@
-import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Injectable, OnInit } from '@angular/core';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
-export class BookingService {
+export class BookingService implements OnInit {
+  constructor(private httpclient: HttpClient) {}
+  ngOnInit(): void {}
 
-  constructor() { }
+  addBoooking(booking: any) {
+    return this.httpclient.post(
+      'https://jsonplaceholder.typicode.com/posts',
+      booking
+    );
+  }
 }
