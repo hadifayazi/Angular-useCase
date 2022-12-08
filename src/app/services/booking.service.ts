@@ -8,7 +8,7 @@ export class BookingService implements OnInit {
   constructor(private httpclient: HttpClient) {}
   ngOnInit(): void {}
 
-  addBoooking(booking: any) {
+  addBooking(booking: any) {
     return this.httpclient.post(
       'https://jsonplaceholder.typicode.com/posts',
       booking

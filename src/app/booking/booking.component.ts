@@ -5,6 +5,9 @@ import {
   FormGroup,
   Validators,
 } from '@angular/forms';
+import { MatGridTileHeaderCssMatStyler } from '@angular/material';
+import { mergeMap } from 'rxjs';
+import { BookingService } from '../services/booking.service';
 
 @Component({
   selector: 'app-booking',
@@ -59,13 +62,16 @@ export class BookingComponent implements OnInit {
     guestPhone: this.guestPhone,
     guestAdress: this.guestAdress,
   });
+  constructor(private bookingSerivce: BookingService) {}
 
   ngOnInit(): void {
-    this.bookingForm.valueChanges.subscribe((arg) => console.log(arg));
+    // this.bookingForm.valueChanges.subscribe((arg) => console.log(arg));
   }
 
   addBooking() {
-    console.log(this.bookingForm.getRawValue());
+    this.bookingSerivce
+      .addBooking(this.bookingForm.getRawValue())
+      .subscribe((arg) => console.log(arg));
     this.bookingForm.reset();
   }
 }
