@@ -31,9 +31,15 @@ export class BookingComponent implements OnInit {
 
   bookingStatus = new FormControl('');
 
-  checkinTime = new FormControl('', [Validators.required]);
+  checkinTime = new FormControl('', [
+    Validators.required,
+    CustomFormValidator.validaDate,
+  ]);
 
-  checkoutTime = new FormControl('', [Validators.required]);
+  checkoutTime = new FormControl('', [
+    Validators.required,
+    CustomFormValidator.validaDate,
+  ]);
 
   guestEmail = new FormControl('', {
     validators: [

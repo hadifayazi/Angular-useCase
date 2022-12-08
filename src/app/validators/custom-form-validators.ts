@@ -22,7 +22,7 @@ export class CustomFormValidator {
   static validaDate(control: FormGroup) {
     const checkinTime: any = new Date(control.get('checkinTime')?.value);
     const checkoutTime: any = new Date(control.get('checkoutTime')?.value);
-    const difftime = Math.abs(checkinTime - checkoutTime);
+    const difftime = checkoutTime - checkinTime;
     const diffDays = Math.ceil(difftime / (1000 * 60 * 60 * 24));
     if (diffDays <= 0) {
       return { invalidDate: true };
