@@ -65,13 +65,20 @@ export class BookingComponent implements OnInit {
   constructor(private bookingSerivce: BookingService) {}
 
   ngOnInit(): void {
-    // this.bookingForm.valueChanges.subscribe((arg) => console.log(arg));
+    // this.bookingForm.valueChanges.subscribe((arg) => {
+    //   this.bookingSerivce.addBooking(arg).subscribe((arg) => {
+    //     console.log(arg);
+    //   });
+    // });
+
+    this.bookingForm.valueChanges
+      .pipe(mergeMap((data) => this.bookingSerivce.addBooking(data)))
+      .subscribe((data) => {
+        console.log(data);
+      });
   }
 
   addBooking() {
-    this.bookingSerivce
-      .addBooking(this.bookingForm.getRawValue())
-      .subscribe((arg) => console.log(arg));
-    this.bookingForm.reset();
+    this.bookingSerivce.addBooking(this.bookingForm.getRawValue());
   }
 }
