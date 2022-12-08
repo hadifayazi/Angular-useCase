@@ -15,7 +15,6 @@ import { filter, pipe } from 'rxjs';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  title = 'hotel';
   role: string = 'admin';
 
   constructor(

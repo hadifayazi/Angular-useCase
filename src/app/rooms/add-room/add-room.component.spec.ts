@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { AddRoomComponent } from './add-room.component';
@@ -8,9 +9,9 @@ describe('AddRoomComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ AddRoomComponent ]
-    })
-    .compileComponents();
+      declarations: [AddRoomComponent],
+      imports: [HttpClientModule],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(AddRoomComponent);
     component = fixture.componentInstance;
