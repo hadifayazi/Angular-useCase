@@ -8,6 +8,7 @@ import {
 import { MatGridTileHeaderCssMatStyler } from '@angular/material';
 import { mergeMap, switchMap, exhaustMap } from 'rxjs';
 import { BookingService } from '../services/booking.service';
+import { CustomFormValidator } from '../validators/custom-form-validators';
 
 @Component({
   selector: 'app-booking',
@@ -42,6 +43,7 @@ export class BookingComponent implements OnInit {
   guestName = new FormControl('', [
     Validators.required,
     Validators.minLength(3),
+    CustomFormValidator.validateName,
   ]);
 
   guestAdress = new FormControl('', [Validators.required]);
