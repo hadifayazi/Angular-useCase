@@ -9,7 +9,7 @@
         <th scope="col">Email</th>
         <th scope="col">Comment</th>
       </tr>
-      <tr *ngFor="let comment of comments$ | async">
+      <tr *ngFor="let comment of commentActiveRoute$ | async">
         <td class="td-item">{{ comment.id }}</td>
         <td class="td-item">{{ comment.postId }}</td>
         <td class="td-item">{{ comment.name }}</td>
