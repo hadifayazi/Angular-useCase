@@ -18,7 +18,10 @@ export class BookingComponent implements OnInit {
 
   bookingDate = new FormControl('', [Validators.required]);
 
-  numberOfGuests = new FormControl('', [Validators.required]);
+  numberOfGuests = new FormControl('', {
+    updateOn: 'blur',
+    validators: [Validators.required],
+  });
 
   bookingPrice = new FormControl('');
 
@@ -28,7 +31,10 @@ export class BookingComponent implements OnInit {
 
   checkoutTime = new FormControl('', [Validators.required]);
 
-  guestEmail = new FormControl('', [Validators.required, Validators.email]);
+  guestEmail = new FormControl('', {
+    validators: [Validators.required, Validators.email],
+    updateOn: 'blur',
+  });
 
   guestName = new FormControl('', [
     Validators.required,
